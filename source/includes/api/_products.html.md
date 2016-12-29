@@ -17,6 +17,8 @@
 }
 ```
 
+### Attributes
+
 Name | Type | Description
 --------- | ------- | -----------
 id | Integer | The product slug of the product.
