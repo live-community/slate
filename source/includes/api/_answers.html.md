@@ -14,7 +14,8 @@
   "recommended":true,
   "current_user_vote_direction":1,
   "current_user_vote_id":12345,
-  "user":{ }
+  "user":{ },
+  "comments":[ ]
 }
 ```
 
@@ -32,3 +33,5 @@ down_votes_count | Integer | Number of users who down-voted the answer.
 recommended | Boolean | If the answer is the accepted answer to the question.
 current_user_vote_direction | Integer | The direction which the current user voted on the resource.<br />(1 for up vote, -1 for down vote)
 current_user_vote_id | Integer | The unique id of the vote resource of the current users' vote.
+user | Object | [User resource](#the-user-resource) of the user who created the question.
+commments | Array | Array of [comment resources](#the-comment-resource) to the question.
