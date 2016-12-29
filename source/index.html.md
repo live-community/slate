@@ -12,6 +12,7 @@ includes:
   - api/questions
   - api/products
   - api/answers
+  - api/comments
   - errors
 
 search: true
