@@ -13,6 +13,7 @@ includes:
   - api/products
   - api/answers
   - api/comments
+  - api/users
   - errors
 
 search: true
