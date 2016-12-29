@@ -40,3 +40,26 @@ user | Object | [User resource](#the-user-resource) of the user who created the 
 product | Object | [Product resource](#the-product-resource) of the question assigned to the product.
 answers | Array | Array of [answer resources](#the-answer-resource) to the question.
 commments | Array | Array of [comment resources](#the-comment-resource) to the question.
+
+## Retrieve a question
+
+### HTTP Request
+
+`GET https://live-community-e2e.platform.intuit.com/v2/shared/questions/<id>`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/768780" \
+  -X GET \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0"
+```
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Unique identifier of the question.
+
+### Response
+A [question resource](#the-question-resource) object.

@@ -47,7 +47,7 @@ You must replace <code>YOUR_APP_ID</code> and <code>YOUR_SECRET</code> with the 
 > To authorize, use this code:
 
 ```shell
-curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123" \
   --header "Intuit_IAM_Authentication intuit_appid=YOUR_APP_ID,intuit_app_secret=YOUR_SECRET"
 ```
 
@@ -58,8 +58,12 @@ This is done by setting the `X-LC-Community-Host` header to the host of your com
 
 For example, if your community url is https://answers.lc.intuit.com/ then you would set the header to just the **hostname** of the url: `answers.lc.intuit.com`.
 
+<aside class="success">
+<b>Note:</b> If your host is <code>ttlc.intuit.com</code> please use <code>https://live-community-e2e.platform.intuit.com/v2/<b>tax</b>/</code> instead for tax isolated communities.
+</aside>
+
 ```shell
-curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123" \
   --header "X-LC-Community-Host: answers.lc.intuit.com"
 ```
 
@@ -78,9 +82,9 @@ Now you have all the pieces needed to make a successful call to the API.
 
 ```shell
 curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
-  --header "Intuit_IAM_Authentication intuit_appid=YOUR_APP_ID,intuit_app_secret=YOUR_SECRET"
-  --header "X-LC-Community-Host: answers.lc.intuit.com"
-  --header "X-Intuit-Auth-ID: 123456789"
+  -H "Intuit_IAM_Authentication intuit_appid=YOUR_APP_ID,intuit_app_secret=YOUR_SECRET" \
+  -H "X-LC-Community-Host: answers.lc.intuit.com" \
+  -H "X-Intuit-Auth-ID: 123456789"
 ```
 # Kittens
 
@@ -203,4 +207,3 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
