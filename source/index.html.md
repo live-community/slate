@@ -3,15 +3,13 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://answers.lc.intuit.com/tags/live%20community%20api%20v2'>Community</a>
+  - <a href='https://devinternal.intuit.com/' target='_blank'>Services Portal</a>
 
 includes:
+  - api/questions
   - errors
 
 search: true
@@ -19,52 +17,67 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the documentation for the Live Community V2 API. You can user our API to ask questions, vote up answers, and get similar questions.
+You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The code powering our API is internal open source so please feel free to poke around [the code](https://github.intuit.com/LiveCommunity/live_community).
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Getting Started
 
-# Authentication
+## On Boarding
+
+Onboarding to the API is done via the Services Portal page for the [Live Community v2 API](https://devinternal.intuit.com/index.html#/main/doc/ljo2/overview).
+
+## Authentication
+
+When you onboard via the Services Portal you will receive the api hostname, app id, and app secret needed to make an authenticated API call.
+You must set the Authentication header with:
+
+`Intuit_IAM_Authentication intuit_appid=YOUR_APP_ID,intuit_app_secret=YOUR_SECRET`
+
+<aside class="notice">
+You must replace <code>YOUR_APP_ID</code> and <code>YOUR_SECRET</code> with the app id and app secret provided to you.
+</aside>
+
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```shell
+curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
+  --header "Intuit_IAM_Authentication intuit_appid=YOUR_APP_ID,intuit_app_secret=YOUR_SECRET"
 ```
 
-```python
-import kittn
+## Specifing your Community
+Because there is a single API endpoint for all communities, you must pass a header to specify the community the request is on behalf of.
 
-api = kittn.authorize('meowmeowmeow')
-```
+This is done by setting the `X-LC-Community-Host` header to the host of your community.
+
+For example, if your community url is https://answers.lc.intuit.com/ then you would set the header to just the **hostname** of the url: `answers.lc.intuit.com`.
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
+  --header "X-LC-Community-Host: answers.lc.intuit.com"
 ```
 
-```javascript
-const kittn = require('kittn');
+## User Authorization
+To make a request on behalf of a user, you must set the `X-Intuit-Auth-ID` header.
 
-let api = kittn.authorize('meowmeowmeow');
+**Note:** this is not required for requests that don’t require an authenticate user to perform the action.
+
+```shell
+curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
+  --header "X-Intuit-Auth-ID: 123456789"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+## Putting it all together
+Now you have all the pieces needed to make a successful call to the API.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
+```shell
+curl "https://api.qa.lc.a.intuit.com/api/v2/questions/123" \
+  --header "Intuit_IAM_Authentication intuit_appid=YOUR_APP_ID,intuit_app_secret=YOUR_SECRET"
+  --header "X-LC-Community-Host: answers.lc.intuit.com"
+  --header "X-Intuit-Auth-ID: 123456789"
+```
 # Kittens
 
 ## Get All Kittens
