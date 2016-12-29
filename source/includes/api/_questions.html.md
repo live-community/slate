@@ -56,6 +56,6 @@ tags | String (comma seperated list) | Categorization of the question.
 closed | Boolean | Whether the question is closed for further answers and comments.
 followers_count | Integer | Number of users following the question.
 user | Object | User resource of the user who created the question.
-product | Object | Product resource of the question assigned to the product.
+product | Object | [Product resource](#the-product-resource) of the question assigned to the product.
 answers | Array | Array of answers to the question.
 commments | Array | Array of comments to the question.

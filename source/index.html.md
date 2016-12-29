@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - api/questions
+  - api/products
   - errors
 
 search: true
