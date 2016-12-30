@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - api/questions
+  - api/articles
   - api/products
   - api/answers
   - api/comments
