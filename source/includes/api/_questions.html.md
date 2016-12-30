@@ -63,3 +63,46 @@ id | Unique identifier of the question.
 
 ### Response
 A [question resource](#the-question-resource) object.
+
+## Create a question
+
+### HTTP Request
+
+`POST https://live-community-e2e.platform.intuit.com/v2/shared/questions`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions" \
+  -X POST \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0" \
+  -H "X-Intuit-Auth-ID: 12345" \
+  -H "Cache-Control: no-cache" \
+  -d '{"subject":"This is a question subject","details":"This is the details of the question","product_id":1000}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "question": {
+    "id": 123,
+    "created_at": "2016-12-30T00:18:16Z",
+    "updated_at": "2016-12-30T00:18:16Z",
+    "url": "https://community.e2e.lc.a.intuit.com/questions/123",
+    "subject": "This is the question subject",
+    "details": "This is the details of the question",
+    "products": {
+      "id": 1000
+    }
+  }
+}
+```
+
+### JSON body structure
+
+Parameter | Description
+--------- | -----------
+subject<br><small>REQUIRED</small> | The question the user is asking. Must be between 15 and 255 characters.
+details | Details about the question being asked.
+product_id | The product_id of a product to be assigned to the question. Must be a valid product id.
