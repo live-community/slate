@@ -221,6 +221,9 @@ Head OK.
 
 ## Retrieve similar questions
 
+This can be helpful to users who would like to see questions that are simliar to the one they are viewing.
+A scenario would be when the question they're viewing isn't related to their needs, they might find something more useful with these results.
+
 ### HTTP Request
 
 `GET https://live-community-e2e.platform.intuit.com/v2/shared/questions/<id>/similar`
@@ -239,6 +242,8 @@ An array of [question resource](#the-question-resource) objects.
 
 
 ## Follow a question
+
+Following a question allows the user to be notified of any new activities happening to the question. Such as new answers, new comments etc.
 
 ### HTTP Request
 
@@ -263,6 +268,9 @@ A [question resource](#the-question-resource) object.
 
 
 ## Unfollow a question
+
+Unfollowing a question will stop the user from receiving notifications to the question. Sometimes when a question has already been answered and any further
+discusions isn't helpful.
 
 ### HTTP Request
 
