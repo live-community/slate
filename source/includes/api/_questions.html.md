@@ -81,7 +81,8 @@ curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions" \
   -d '{"subject":"This is a question subject","details":"This is the details of the question","product_id":1000}'
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns a JSON structured like this: <br /> <b>Note:</b> This is just a summarized question resource.
+
 
 ```json
 {
@@ -92,9 +93,30 @@ curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions" \
     "url": "https://community.e2e.lc.a.intuit.com/questions/123",
     "subject": "This is the question subject",
     "details": "This is the details of the question",
-    "products": {
-      "id": 1000
-    }
+    "tags":"",
+    "closed":false,
+    "followers_count":1,
+    "current_user_following":true,
+    "user":{
+      "id":12345,
+      "display_name":"test_user",
+      "role":"User",
+      "questions_count":1
+    },
+    "product":{
+      "id":1000,
+      "created_at":"2015-01-15T22:16:07Z",
+      "updated_at":"2016-09-24T00:36:37Z",
+      "name":"QuickBooks Online",
+      "product_id":1000,
+      "edition":"",
+      "platform":"Online",
+      "year":"",
+      "group":"QuickBooks Online",
+      "country":"United Kingdom"
+    },
+    "answers":[ ],
+    "comments":[ ]
   }
 }
 ```
