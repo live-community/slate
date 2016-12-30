@@ -217,3 +217,70 @@ curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123" \
 
 ### Response
 Head OK.
+
+
+## Retrieve similar questions
+
+### HTTP Request
+
+`GET https://live-community-e2e.platform.intuit.com/v2/shared/questions/<id>/similar`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123/similar" \
+  -X GET \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0" \
+  -H "Cache-Control: no-cache" \
+```
+
+### Response
+An array of [question resource](#the-question-resource) objects.
+
+
+## Follow a question
+
+### HTTP Request
+
+`POST https://live-community-e2e.platform.intuit.com/v2/shared/questions/<id>/follow`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123/follow" \
+  -X POST \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0" \
+  -H "X-Intuit-Auth-ID: 12345" \
+  -H "Cache-Control: no-cache" \
+```
+
+<aside class="notice">
+To get a user to follow a question, pass in their Intuit Auth ID in the header.
+</aside>
+
+### Response
+A [question resource](#the-question-resource) object.
+
+
+## Unfollow a question
+
+### HTTP Request
+
+`DELETE https://live-community-e2e.platform.intuit.com/v2/shared/questions/<id>/unfollow`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123/unfollow" \
+  -X DELETE \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0" \
+  -H "X-Intuit-Auth-ID: 12345" \
+  -H "Cache-Control: no-cache" \
+```
+
+<aside class="notice">
+To get a user to unfollow a question, pass in their Intuit Auth ID in the header.
+</aside>
+
+### Response
+Head OK.
