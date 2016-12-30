@@ -128,6 +128,9 @@ subject<br><small>REQUIRED</small> | The question the user is asking. Must be be
 details | Details about the question being asked.
 product_id | The product_id of a product to be assigned to the question. Must be a valid product id.
 
+### Response
+A [question resource](#the-question-resource) object.
+
 
 ## Update a question
 
@@ -192,3 +195,25 @@ Parameter | Description
 subject | The question the user is asking. Must be between 15 and 255 characters.
 details | Details about the question being asked.
 product_id | The product_id of a product to be assigned to the question. Must be a valid product id.
+
+### Response
+A [question resource](#the-question-resource) object.
+
+
+## Delete a question
+
+### HTTP Request
+
+`DELETE https://live-community-e2e.platform.intuit.com/v2/shared/questions/<id>`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/questions/123" \
+  -X DELETE \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0" \
+  -H "Cache-Control: no-cache" \
+```
+
+### Response
+Head OK.
