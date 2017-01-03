@@ -53,3 +53,26 @@ parent_id<br><small>REQUIRED</small>  | The id of the resource to vote on.
 parent_type<br><small>REQUIRED</small>  | The name of the resource to vote on (e.g. Question, Answer, Article).
 direction<br><small>REQUIRED</small>  | `1` for an upvote or a `-1` for a downvote.
 feedback | 255 character string containing feedback for the answer. This is only available on downvotes.
+
+
+## Update a vote
+
+### HTTP Request
+
+`PUT https://live-community-e2e.platform.intuit.com/v2/shared/votes/1547636`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/votes/1547636" \
+  -X PUT \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0"
+  -H "X-Intuit-Auth-ID: 12345"
+  -d '{"feedback":"This is a test feedback"}'
+```
+
+### Form Parameters
+
+Parameter | Description
+--------- | -----------
+feedback | 255 character string containing feedback for the answer. This is only available on downvotes.
