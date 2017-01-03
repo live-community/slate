@@ -15,6 +15,7 @@ includes:
   - api/answers
   - api/comments
   - api/users
+  - api/votes
   - errors
 
 search: true
