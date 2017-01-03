@@ -9,6 +9,7 @@ toc_footers:
   - <a href='https://devinternal.intuit.com/' target='_blank'>Services Portal</a>
 
 includes:
+  - api/search
   - api/questions
   - api/articles
   - api/products
