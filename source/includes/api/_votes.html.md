@@ -82,3 +82,21 @@ feedback | 255 character string containing feedback for the answer. This is only
 
 ### Response
 A [vote resource](#the-vote-resource) object.
+
+
+## Delete a vote
+
+### HTTP Request
+
+`DELETE https://live-community-e2e.platform.intuit.com/v2/shared/votes/1547636`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/votes/1547636" \
+  -X DELETE \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0"
+```
+
+### Response
+Head OK.
