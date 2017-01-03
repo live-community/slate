@@ -115,3 +115,28 @@ curl "https://live-community-e2e.platform.intuit.com/v2/shared/articles/by_conte
 Parameter | Description
 --------- | -----------
 id | STS global identifier of the article.
+
+
+## Create an article
+
+This call can be used if there is a known article in STS that is has not yet been loaded into Live Community.
+Calling this method will return a an instance of article including a publicly accessible URL that can be shared with customers.
+
+`POST https://live-community-e2e.platform.intuit.com/v2/shared/articles`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/articles/by_content_identifier/abc_123" \
+  -X POST \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0"
+  -d '{"source_identifier":"000001957","source_name":"Salesforce","source_locale":"en_US"}'
+```
+
+### Form Parameters
+
+Parameter | Description
+--------- | -----------
+source_name<br><small>REQUIRED</small>  | The name of the source for the article
+source_identifier<br><small>REQUIRED</small>  | The id of the source document
+source_locale<br><small>REQUIRED</small>  | The locale of the article in STS
