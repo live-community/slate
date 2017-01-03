@@ -54,6 +54,9 @@ parent_type<br><small>REQUIRED</small>  | The name of the resource to vote on (e
 direction<br><small>REQUIRED</small>  | `1` for an upvote or a `-1` for a downvote.
 feedback | 255 character string containing feedback for the answer. This is only available on downvotes.
 
+### Response
+A [vote resource](#the-vote-resource) object.
+
 
 ## Update a vote
 
@@ -76,3 +79,6 @@ curl "https://live-community-e2e.platform.intuit.com/v2/shared/votes/1547636" \
 Parameter | Description
 --------- | -----------
 feedback | 255 character string containing feedback for the answer. This is only available on downvotes.
+
+### Response
+A [vote resource](#the-vote-resource) object.
