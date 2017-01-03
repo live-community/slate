@@ -62,3 +62,56 @@ internal_details | String | Returns an HTML safe of the internal details of the 
 source | String | The source name of where the article was authored in.
 current_user_vote_direction | Integer | The direction which the current user voted on the resource.<br />(1 for up vote, -1 for down vote)
 current_user_vote_id | Integer | The unique id of the vote resource of the current users' vote.
+
+
+## Retrieve an article by ID
+
+Retrieve an article by the ID.
+
+<aside class="notice">
+Live Community IDs of articles are not stable. Because we don't have
+contol over article content, content writers can choose to archive and
+write a new article, which generates a new ID for it. If you'd like a
+more stable choice, please retrieve by content identifier.
+</aside>
+
+### HTTP Request
+
+`GET https://live-community-e2e.platform.intuit.com/v2/shared/articles/<id>`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/articles/123" \
+  -X GET \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0"
+```
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | Unique identifier of the article.
+
+
+## Retrieve by content identifier
+
+Retrieve an article by its content identifier (Provided by STS team).
+
+### HTTP Request
+
+`GET https://live-community-e2e.platform.intuit.com/v2/shared/articles/by_content_identifier/<id>`
+
+```shell
+curl "https://live-community-e2e.platform.intuit.com/v2/shared/articles/by_content_identifier/abc_123" \
+  -X GET \
+  -H "X-LC-Community-Host: community.e2e.lc.a.intuit.com" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Intuit_APIKey intuit_apikey=akyreexample7oCKuUf, intuit_apkey_version=1.0"
+```
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | STS global identifier of the article.
