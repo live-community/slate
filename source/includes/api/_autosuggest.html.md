@@ -1,4 +1,4 @@
-# Autosuggest & Presearch
+# Autosuggest
 
 ## The autosuggest resource
 
@@ -39,5 +39,3 @@ autosuggest | Array | An array of strings for autosuggest queries
 Parameter | Description
 --------- | -----------
 q | The query
-
-## The presearch resource

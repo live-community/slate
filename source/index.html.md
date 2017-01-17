@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - api/search
   - api/autosuggest
+  - api/presearch
   - api/questions
   - api/articles
   - api/products
