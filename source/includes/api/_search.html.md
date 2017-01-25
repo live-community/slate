@@ -102,4 +102,5 @@ product_slug | Filter the results by the provided product slug
 product_name | Filter the results by the provided product name
 product_edition | Filter the results by the provided product edition
 product_platform | Filter the results by the provided product platform
+document_type | Type of document to filter against. (Either `Question` or `Article`) can be filtered for now.
 cc | Client context of the user. Refer to this [documentation](https://wiki.intuit.com/pages/viewpage.action?pageId=381981386) to understand what can be passed. To pass multiple context, pass as an array: `cc[Product_Type]=Online&cc[Product_Category]=free`.
