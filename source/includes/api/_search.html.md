@@ -99,8 +99,23 @@ per_page | The number of search results to show per page
 facets | An array of facets to include in the response.<br />Available values: type, product_name, country.<br />The URL structure for array is `&facet[]=type&facet[]=product_name&facet[]=country`
 tags | Search for content that are tagged with this value
 product_slug | Filter the results by the provided product slug
+product_slugs | An array of product slugs to query against, with an `OR` operator.
 product_name | Filter the results by the provided product name
 product_edition | Filter the results by the provided product edition
 product_platform | Filter the results by the provided product platform
+products | An array of product fields to query against, with an `OR` operator.
 document_type | Type of document to filter against. (Either `Question` or `Article`) can be filtered for now.
 cc | Client context of the user. Refer to this [documentation](https://wiki.intuit.com/pages/viewpage.action?pageId=381981386) to understand what can be passed. To pass multiple context, pass as an array: `cc[Product_Type]=Online&cc[Product_Category]=free`.
+
+### Filtering by products
+
+As described above, there are 4 ways of filtering my products: `product_slug`, `product_slugs[]`, `product_name|product_edition|product_platform` and `products[]`.
+
+This is how you to supply accurate values:
+
+Parameter | Value
+--------- | -----------
+product_slug | A single product slug from the products table. `?product_slug=123`
+product_slugs | An array of product slugs from the products table. `?product_slugs[]=123&product_slugs[]=988`
+product_name<br />product_edition<br />product_platform | Filtering by a product field. `?product_name=TurboTax&product_platform=Online`
+products | An array of product fields to be filtered on. <code>?products[]=name::QuickBooks%20Online&#124;edition::Plus&products[]=name::TurboTax%20Online&#124;platform::Online</code>
